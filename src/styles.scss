@@ -1,0 +1,40 @@
+@import "vars";
+@import "~vx-components/theming.scss";
+
+$colors: (
+  primary: $mainColor,
+  background: $lightColor,
+  foreground: $darkColor,
+  error: #bf0000,
+  success: #51a351,
+  warn: #f89406,
+  accent: #FFCA4F
+);
+
+@include vx-button-theme($colors);
+@include vx-menu-theme($colors);
+// TODO: remove this
+a.vx-button {
+  text-decoration: none;
+}
+
+
+body {
+  margin: 0;
+  font-family: "Open Sans",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  background: $lightColor;
+}
+
+/* You can add global styles to this file, and also import other style files */
+.app-title {
+  font-family: "Montserrat",Helvetica,Arial,sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+
+.mTop15 {
+  margin-top: 15px;
+}

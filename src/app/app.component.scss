@@ -1,0 +1,30 @@
+@import "vars";
+
+$headerHeight: 70px;
+
+header {
+  display: flex;
+  padding: 10px;
+  border-top: 5px solid $mainColor;
+  background: $lightColor;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: $headerHeight;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3)
+}
+
+.app-title {
+  cursor: pointer;
+  outline: none;
+}
+
+
+.pageBody {
+  margin-top: $headerHeight;
+}

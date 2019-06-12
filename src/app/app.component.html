@@ -1,0 +1,15 @@
+<header>
+  <div class="app-title" routerLink="/">IntelliJ-RON</div>
+
+  <button vx-button="stroked" color="light" variation="flat" [vxMenuTrigger]="menu">
+    <fa-icon icon="bars" size="lg"></fa-icon>
+  </button>
+
+  <vx-menu #menu [positionStrategy]="positionStrategy">
+    <vx-item> Go Here </vx-item>
+  </vx-menu>
+</header>
+
+<div class="pageBody">
+  <router-outlet></router-outlet>
+</div>

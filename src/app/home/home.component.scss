@@ -1,0 +1,28 @@
+.beamWrapper {
+  background: white url('/assets/beam.svg') no-repeat center;
+  background-size: 1000px;
+  height: 400px;
+  text-align: center;
+  //padding-top: 0px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-title {
+  font-size: 50px;
+  margin: 0;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.23)
+}
+
+.second {
+  margin-top: 10px;
+  font-size: 30px;
+}
+
+.download {
+  font-size: 20px;
+  margin-top: 45px;
+}
