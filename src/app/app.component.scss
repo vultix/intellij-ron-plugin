@@ -28,3 +28,12 @@ header {
 .pageBody {
   margin-top: $headerHeight;
 }
+
+.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+vx-item {
+  white-space: nowrap;
+}

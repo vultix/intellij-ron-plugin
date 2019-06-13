@@ -1,0 +1,25 @@
+:host {
+  padding: 30px;
+  display: block;
+}
+
+$clauseSpace: 80px;
+
+h1 {
+  margin-top: 0;
+  font-size: 40px;
+}
+
+h2 {
+  margin-top: $clauseSpace;
+}
+
+.indented {
+  margin-left: 20px;
+}
+
+.version {
+  color:  #67676A;
+  font-size: 20px;
+  margin-bottom: $clauseSpace;
+}

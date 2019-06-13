@@ -3,13 +3,13 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { PageService } from './page.service';
 import { SharedModule } from './shared/shared.module';
 import { BadUrlComponent } from './bad-url/bad-url.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', loadChildren: () => import('./home/home.module').then(m => m.HomeModule)},
   {path: 'license', loadChildren: () => import('./license/license.module').then(m => m.LicenseModule)},
+  {path: 'coming-soon', loadChildren: () => import('./coming-soon/coming-soon.module').then(m => m.ComingSoonModule)},
   {path: '404', component: BadUrlComponent},
   {path: '**', redirectTo: '/404'}
 ];
@@ -25,7 +25,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules}),
     SharedModule
   ],
-  providers: [PageService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

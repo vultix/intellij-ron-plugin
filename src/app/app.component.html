@@ -1,12 +1,14 @@
 <header>
-  <div class="app-title" routerLink="/">IntelliJ-RON</div>
+  <div class="app-title" routerLink="/">IntelliJ-RON Plugin</div>
 
   <button vx-button="stroked" color="light" variation="flat" [vxMenuTrigger]="menu">
     <fa-icon icon="bars" size="lg"></fa-icon>
   </button>
 
   <vx-menu #menu [positionStrategy]="positionStrategy">
-    <vx-item routerLink="/license" routerLinkActive="active"> License </vx-item>
+      <vx-item *ngFor="let route of routes" [routerLink]="route.route" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        {{route.name}}
+      </vx-item>
   </vx-menu>
 </header>
 
