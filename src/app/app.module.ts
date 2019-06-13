@@ -21,7 +21,9 @@ const routes: Routes = [
     BadUrlComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({
+      appId: 'documentation'
+    }),
     RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules}),
     SharedModule
   ],

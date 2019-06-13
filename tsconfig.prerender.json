@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc/app",
+    "module": "commonjs",
+    "moduleResolution": "node"
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts",
+    "node_modules"
+  ],
+  "angularCompilerOptions": {
+    "entryModule": "src/app/app-prerender.module#AppPrerenderModule"
+  }
+}
