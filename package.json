@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --disable-host-check --host 0.0.0.0",
     "build": "ng build --prod",
     "build:prerender": "ng run intellij-ron-plugin:prerender:production",
     "build:prerenderer": "tsc -p prerenderer/tsconfig.json",

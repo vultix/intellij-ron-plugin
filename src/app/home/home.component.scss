@@ -26,3 +26,33 @@
   font-size: 20px;
   margin-top: 45px;
 }
+
+.videoWrapper {
+  background: #ccc;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+
+
+video {
+  max-width: 100%;
+  width: 900px;
+}
+
+
+@media screen  and (max-width: 700px) /* Tablet */ {
+  .videoWrapper {
+    padding: 0;
+  }
+}
+
+@media screen  and (max-width: 500px) /* Mobile */ {
+  video {
+    max-width: calc(100% + 60px);
+    padding-left: 30px;
+  }
+}
