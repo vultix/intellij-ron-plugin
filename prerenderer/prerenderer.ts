@@ -1,23 +1,23 @@
 import { enableProdMode } from '@angular/core';
-import { readFileSync, writeFile, mkdirSync } from 'fs';
+import { readFileSync, writeFile, readdirSync } from 'fs';
 import { join } from 'path';
 import { renderModuleFactory } from '@angular/platform-server';
 import { MODULE_MAP } from '@nguniversal/module-map-ngfactory-loader';
 import 'zone.js/dist/zone-node';
 enableProdMode();
 
-const val = require('./prerender/main');
-const { AppPrerenderModuleNgFactory, LAZY_MODULE_MAP } = require('./prerender/main');
+const mainFile = readdirSync('./prerender/').find(file => file.startsWith('main'));
 
-const indexFile = readFileSync(join('documentation', 'index.html'), 'utf8');
-const routes = ['/license', '/404', '/coming-soon'];
+const { AppPrerenderModuleNgFactory, LAZY_MODULE_MAP } = require('./prerender/' + mainFile);
 
-const distFolder = './documentation';
+const indexFile = readFileSync(join('intellij-ron-plugin', 'index.html'), 'utf8');
+const routes = ['/', '/license', '/404', '/coming-soon'];
 
-renderToHtml('/index.html', distFolder);
-routes.forEach(route => renderToHtml(route, distFolder + route));
+const distFolder = './intellij-ron-plugin';
 
-function renderToHtml(url: string, folderPath: string): void {
+routes.forEach(route => renderToHtml(route));
+
+function renderToHtml(url: string): void {
   // Render the module with the correct url just
   // as the server would do
   renderModuleFactory(AppPrerenderModuleNgFactory, {
@@ -28,10 +28,14 @@ function renderToHtml(url: string, folderPath: string): void {
     ]
   }).then(html => {
     // create the route directory
-    if (url !== '/index.html') {
-      mkdirSync(folderPath);
+    // if (url !== '/index.html') {
+    //   mkdirSync(folderPath);
+    // }
+    if (url === '/') {
+      url = '/index';
     }
-    writeFile(folderPath + '/index.html', html,  (err =>  {
+
+    writeFile(distFolder + url + '.html', html,  (err =>  {
       if (err) {
         throw err;
       }

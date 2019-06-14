@@ -3,13 +3,14 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { LicenseComponent } from './license/license.component';
 import { SharedModule } from './shared/shared.module';
 import { BadUrlComponent } from './bad-url/bad-url.component';
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', loadChildren: () => import('./home/home.module').then(m => m.HomeModule)},
-  {path: 'license', loadChildren: () => import('./license/license.module').then(m => m.LicenseModule)},
-  {path: 'coming-soon', loadChildren: () => import('./coming-soon/coming-soon.module').then(m => m.ComingSoonModule)},
+  {path: '', pathMatch: 'full', component: HomeComponent},
+  {path: 'license', component: LicenseComponent},
   {path: '404', component: BadUrlComponent},
   {path: '**', redirectTo: '/404'}
 ];
@@ -18,6 +19,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
+    LicenseComponent,
     BadUrlComponent
   ],
   imports: [

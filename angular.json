@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "documentation": {
+    "intellij-ron-plugin": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,18 +17,21 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/documentation",
+            "outputPath": "dist/intellij-ron-plugin",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": false,
+            "deployUrl": "/intellij-ron-plugin/",
+            "baseHref": "/intellij-ron-plugin/",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/@fortawesome/fontawesome-svg-core/styles.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -47,7 +50,8 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
+              "sourceMap": true,
+              "statsJson": true,
               "extractCss": true,
               "namedChunks": false,
               "aot": true,
@@ -67,11 +71,11 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "documentation:build"
+            "browserTarget": "intellij-ron-plugin:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "documentation:build:production"
+              "browserTarget": "intellij-ron-plugin:build:production"
             }
           }
         },
@@ -79,8 +83,10 @@
           "builder": "@angular-devkit/build-angular:server",
           "options": {
             "outputPath": "dist/prerender",
+            "outputHashing": "all",
             "main": "src/main.prerender.ts",
             "tsConfig": "tsconfig.prerender.json",
+            "deployUrl": "/intellij-ron-plugin/",
             "stylePreprocessorOptions": {
               "includePaths": [
                 "src/styles"
@@ -105,5 +111,5 @@
         }
       }
     }},
-  "defaultProject": "documentation"
+  "defaultProject": "intellij-ron-plugin"
 }

@@ -6,6 +6,10 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faBars } from '@fortawesome/pro-regular-svg-icons';
 import { VxButtonModule, VxMenuModule } from 'vx-components';
 
+// TODO: Remove this when the following is fixed: https://github.com/FortAwesome/angular-fontawesome/issues/48
+import { config } from '@fortawesome/fontawesome-svg-core';
+config.autoAddCss = false;
+
 @NgModule({
   declarations: [],
   imports: [

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { FaIconService } from '@fortawesome/angular-fontawesome';
 import { AttachedPositionStrategy } from 'vx-components';
 
@@ -8,7 +9,6 @@ import { AttachedPositionStrategy } from 'vx-components';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'documentation';
   routes = [
     {name: 'Home', route: '/'},
     {name: 'Plugin License', route: '/license'},
@@ -28,7 +28,9 @@ export class AppComponent {
     }
   ];
 
-  constructor(private faService: FaIconService) {
+  constructor(private faService: FaIconService, private title: Title) {
     faService.defaultPrefix = 'far';
+
+    this.title.setTitle('IntelliJ-RON Plugin')
   }
 }
