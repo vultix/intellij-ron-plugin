@@ -11,6 +11,7 @@ import { AttachedPositionStrategy } from 'vx-components';
 export class AppComponent {
   routes = [
     {name: 'Home', route: '/'},
+    {name: 'Features', route: '/features'},
     {name: 'Plugin License', route: '/license'},
   ];
 
