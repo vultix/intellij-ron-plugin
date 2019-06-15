@@ -28,7 +28,6 @@
     "@fortawesome/free-brands-svg-icons": "^5.9.0",
     "@fortawesome/pro-regular-svg-icons": "^5.9.0",
     "@nguniversal/module-map-ngfactory-loader": "^7.1.1",
-    "decorator-cache-getter": "^1.0.0",
     "ng-recaptcha": "^4.3.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",

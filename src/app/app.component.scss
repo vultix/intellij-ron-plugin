@@ -27,7 +27,6 @@ header {
 
 .pageBody {
   margin-top: $headerHeight;
-  display: flex;
   min-height: calc(100vh - #{$headerHeight})
 }
 

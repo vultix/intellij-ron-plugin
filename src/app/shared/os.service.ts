@@ -1,16 +1,16 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { cache } from 'decorator-cache-getter';
+import { cache } from '../cache';
 
 export type OS = 'win' | 'mac';
 @Injectable()
 export class OSService {
-  @cache
+  @cache()
   get os(): OS {
     const isBrowser = isPlatformBrowser(this.platformId);
-    console.log('Getting value')
+    const macTests = ['Mac', 'iPhone', 'iPad', 'iPod'];
 
-    if (isBrowser && window.navigator.platform.includes('Mac')) {
+    if (isBrowser && macTests.find(test => window.navigator.platform.includes(test))) {
       return 'mac';
     } else {
       return 'win';

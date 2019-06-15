@@ -1,0 +1,47 @@
+@import "vars";
+
+:host {
+  color: #3B3E42;
+  background: $lightColor2;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+h2 {
+  margin: 0;
+}
+
+.feature {
+  flex-basis: 50%;
+  flex-grow: 1;
+  width: 50%;
+  min-width: 300px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.img {
+  height: 0;
+  padding: 0; /* remove any pre-existing padding, just in case */
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  max-width: 300px;
+}
+
+// TODO: Remove these images and use an image tag when this is fixed: https://github.com/angular/angular-cli/issues/6666
+.parameter-hint {
+  background-image: url("img/parameter-hint.png");
+  padding-bottom: 26.27%;
+}
+
+
+.type-hint {
+  background-image: url("img/type-hint.png");
+  padding-bottom: 37.87%;
+}
+
+.vx-button {
+  margin: 10px;
+}
