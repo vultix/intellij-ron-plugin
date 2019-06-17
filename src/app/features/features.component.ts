@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { BehaviorSubject } from 'rxjs';
 import { cache } from '../cache';
@@ -7,10 +7,12 @@ import { OS, OSService } from '../shared/os.service';
 @Component({
   selector: 'app-features',
   templateUrl: './features.component.html',
-  styleUrls: ['./features.component.scss']
+  styleUrls: ['./features.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+
 })
 export class FeaturesComponent implements OnInit, OnDestroy {
-  private osType = new BehaviorSubject<OS>(this.osService.os);
+  osType = new BehaviorSubject<OS>(this.osService.os);
 
   @cache('osType')
   get reformatKeys(): string {
@@ -71,6 +73,15 @@ export class FeaturesComponent implements OnInit, OnDestroy {
     switch (this.osType.value) {
       case 'mac': return '⌃⇧P';
       case 'win': return 'Ctrl+Shift+P';
+      default: throw Error('Unexpected os: ' + this.osType.value);
+    }
+  }
+
+  @cache('osType')
+  get quickDocsKeys(): string {
+    switch (this.osType.value) {
+      case 'mac': return 'F1';
+      case 'win': return 'Ctrl+Q';
       default: throw Error('Unexpected os: ' + this.osType.value);
     }
   }

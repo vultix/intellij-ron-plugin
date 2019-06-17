@@ -1,4 +1,6 @@
-<button vx-button="raised" color="primary" [vxMenuTrigger]="menu">Change key bindings</button>
+<div class="button">
+  <button vx-button="raised" color="primary" [vxMenuTrigger]="menu">Change key bindings</button>
+</div>
 
 <div class="feature">
   <h2>Syntax Highlighting</h2>
@@ -57,6 +59,11 @@
   <h2>Type Information</h2>
   <div class="img type-hint"></div>
   <p>Use <kbd [vxMenuTrigger]="menu">{{typeInfoKeys}}</kbd> to view the type of the selected struct, enum, map, list, etc...</p>
+</div>
+
+<div class="feature">
+  <h2>Quick Documentation</h2>
+  <p>Use <b>Quick Documentation</b> <kbd [vxMenuTrigger]="menu">{{quickDocsKeys}}</kbd>  to show the docs for the symbol at caret.</p>
 </div>
 
 <vx-menu #menu>
