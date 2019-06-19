@@ -31,7 +31,7 @@
     "ng-recaptcha": "^4.3.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
-    "vx-components": "^2.0.0-alpha.12",
+    "vx-components": "^2.0.0-alpha.13",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {

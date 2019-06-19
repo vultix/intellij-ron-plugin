@@ -86,6 +86,14 @@ export class FeaturesComponent implements OnInit, OnDestroy {
     }
   }
 
+  get platform(): string {
+    switch (this.osType.value) {
+      case 'mac': return 'Mac OS X 10.5+ Default';
+      case 'win': return 'Windows / Linux Default';
+      default: throw Error('Unexpected os: ' + this.osType.value);
+    }
+  }
+
   constructor(private osService: OSService, private title: Title) {
     title.setTitle('Features');
   }

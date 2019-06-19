@@ -5,7 +5,7 @@
     <fa-icon icon="bars" size="lg"></fa-icon>
   </button>
 
-  <vx-menu #menu [positionStrategy]="positionStrategy">
+  <vx-menu #menu>
       <vx-item *ngFor="let route of routes" [routerLink]="route.route" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         {{route.name}}
       </vx-item>

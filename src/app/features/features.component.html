@@ -1,72 +1,100 @@
-<div class="button">
-  <button vx-button="raised" color="primary" [vxMenuTrigger]="menu">Change key bindings</button>
+<div class="wrapper">
+  <h1>Features</h1>
+
+  <div class="keybindings">
+    Current keybindings: <kbd [vxMenuTrigger]="menu">{{platform}}</kbd>
+  </div>
+
+  <div class="feature large">
+    <h2>Importing Ron Types</h2>
+    <p>
+      IntelliJ-RON has a custom syntax for importing Rust types.  This enables code navigation, completion and validation.
+    </p>
+    <p>
+      To import a type:
+    </p>
+    <ul>
+      <li>Create an 'import' block comment at the top of your file by typing <code>/*!</code>.</li>
+      <li>Inside the 'import' block comment, simply write the name of any Rust struct, enum, or type alias.</li>
+    </ul>
+    <video appVideo>
+      <source src="/intellij-ron-plugin/assets/import-demo.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="feature">
+    <h2>Syntax Highlighting</h2>
+    <p>
+      IntelliJ-RON adds support for completely customizable lexer-based highlighting. All color schemes are customizable
+      and we support both Default and Darcula themes out of the box.
+    </p>
+  </div>
+
+  <div class="feature">
+    <h2>Code Formatter</h2>
+    <p>
+      <b>Reformat Code</b> <kbd [vxMenuTrigger]="menu">{{reformatKeys}}</kbd> re-formats the current file or selection
+      using our custom,
+      functional, fully-customizable formatter based on IntelliJ's formatting engine.
+    </p>
+  </div>
+
+  <div class="feature">
+    <h2>Code Selection</h2>
+    <p>To select a block of code place a cursor inside block and press <kbd
+      [vxMenuTrigger]="menu">{{expandSelectionKeys}}</kbd> to expand it to
+      an expression, to a line, to a logical block of code, and so on. To shrink selection
+      press<kbd [vxMenuTrigger]="menu">{{shrinkSelectionKeys}}</kbd> as many times as needed.</p>
+  </div>
+
+  <div class="feature">
+    <h2>Code Commenting</h2>
+
+    <p>After selecting block, you can apply a block comment (<kbd [vxMenuTrigger]="menu">{{blockCommentKeys}}</kbd>) or
+      line comment
+      (<kbd [vxMenuTrigger]="menu">{{lineCommentKeys}}</kbd>) to it. The same shortcuts will remove existing comments
+      from selected lines too.
+    </p>
+  </div>
+
+  <div class="feature">
+    <h2>Code Folding</h2>
+
+    <p>Code folding, auto-insertion of braces, brackets & quotes, matching brace/bracket highlighting, etc...</p>
+  </div>
+
+  <div class="feature">
+    <h2>On-the-fly analysis</h2>
+    <p>
+      Errors are shown as you type. Among others, we catch syntax errors, missing struct fields, and invalid types.
+      We also support IntelliJ's built-in spell-checker.</p>
+  </div>
+
+
+  <!--SECTION:-->
+
+  <div class="feature">
+    <h2>Parameter Hints</h2>
+    <div class="img parameter-hint"></div>
+    <p>In the editor, use <b>Show Parameter Hints</b> <kbd [vxMenuTrigger]="menu">{{parameterHintKeys}}</kbd> when
+      editing enums or tuples and you can see type hints.</p>
+  </div>
+
+  <div class="feature">
+    <h2>Type Information</h2>
+    <div class="img type-hint"></div>
+    <p>Use <kbd [vxMenuTrigger]="menu">{{typeInfoKeys}}</kbd> to view the type of the selected struct, enum, map, list,
+      etc...</p>
+  </div>
+
+  <div class="feature">
+    <h2>Quick Documentation</h2>
+    <p>Use <b>Quick Documentation</b> <kbd [vxMenuTrigger]="menu">{{quickDocsKeys}}</kbd> to show the docs for the
+      symbol at caret.</p>
+  </div>
+
+  <vx-menu #menu>
+    <vx-item (select)="osType.next('win')" [class.bold]="osType.value === 'win'">Linux / Windows Default Key Bindings</vx-item>
+    <vx-item (select)="osType.next('mac')" [class.bold]="osType.value === 'mac'">Mac OS X 10.5+ Default Key Bindings</vx-item>
+  </vx-menu>
 </div>
-
-<div class="feature">
-  <h2>Syntax Highlighting</h2>
-  <p>
-    IntelliJ-RON adds support for completely customizable lexer-based highlighting. All color schemes are customizable
-    and we support both Default and Darcula themes out of the box.
-  </p>
-</div>
-
-<div class="feature">
-  <h2>Code Formatter</h2>
-  <p>
-    <b>Reformat Code</b> <kbd [vxMenuTrigger]="menu">{{reformatKeys}}</kbd> re-formats the current file or selection using our custom,
-    functional, fully-customizable formatter based on IntelliJ's formatting engine.
-  </p>
-</div>
-
-<div class="feature">
-  <h2>Code Selection</h2>
-  <p>To select a block of code place a cursor inside block and press <kbd [vxMenuTrigger]="menu">{{expandSelectionKeys}}</kbd> to expand it to
-    an expression, to a line, to a logical block of code, and so on. To shrink selection
-    press<kbd [vxMenuTrigger]="menu">{{shrinkSelectionKeys}}</kbd> as many times as needed.</p>
-</div>
-
-<div class="feature">
-  <h2>Code Commenting</h2>
-
-  <p>After selecting block, you can apply a block comment (<kbd [vxMenuTrigger]="menu">{{blockCommentKeys}}</kbd>) or line comment
-    (<kbd [vxMenuTrigger]="menu">{{lineCommentKeys}}</kbd>) to it. The same shortcuts will remove existing comments from selected lines too.
-  </p>
-</div>
-
-<div class="feature">
-  <h2>Code Folding</h2>
-
-  <p>Code folding, auto-insertion of braces, brackets & quotes, matching brace/bracket highlighting, etc...</p>
-</div>
-
-<div class="feature">
-  <h2>On-the-fly analysis</h2>
-  <p>
-    Errors are shown as you type. Among others, we catch syntax errors, missing struct fields, and invalid types.
-    We also support IntelliJ's built-in spell-checker.</p>
-</div>
-
-
-<!--SECTION:-->
-
-<div class="feature">
-  <h2>Parameter Hints</h2>
-  <div class="img parameter-hint"></div>
-  <p>In the editor, use <b>Show Parameter Hints</b> <kbd [vxMenuTrigger]="menu">{{parameterHintKeys}}</kbd> when editing enums or tuples and you can see type hints.</p>
-</div>
-
-<div class="feature">
-  <h2>Type Information</h2>
-  <div class="img type-hint"></div>
-  <p>Use <kbd [vxMenuTrigger]="menu">{{typeInfoKeys}}</kbd> to view the type of the selected struct, enum, map, list, etc...</p>
-</div>
-
-<div class="feature">
-  <h2>Quick Documentation</h2>
-  <p>Use <b>Quick Documentation</b> <kbd [vxMenuTrigger]="menu">{{quickDocsKeys}}</kbd>  to show the docs for the symbol at caret.</p>
-</div>
-
-<vx-menu #menu>
-  <vx-item (select)="osType.next('win')" [class.bold]="osType.value === 'win'">Linux / Windows Key Bindings</vx-item>
-  <vx-item (select)="osType.next('mac')" [class.bold]="osType.value === 'mac'">Mac Key Bindings</vx-item>
-</vx-menu>
