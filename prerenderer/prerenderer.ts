@@ -11,7 +11,7 @@ const mainFile = readdirSync('./prerender/').find(file => file.startsWith('main'
 const { AppPrerenderModuleNgFactory, LAZY_MODULE_MAP } = require('./prerender/' + mainFile);
 
 const indexFile = readFileSync(join('intellij-ron-plugin', 'index.html'), 'utf8');
-const routes = ['/', '/license', '/features', '/404', '/coming-soon'];
+const routes = ['/', '/license', '/features', '/404', '/quickstart'];
 
 const distFolder = './intellij-ron-plugin';
 

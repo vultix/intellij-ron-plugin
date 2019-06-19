@@ -9,10 +9,6 @@ import { Title } from '@angular/platform-browser';
 })
 export class BadUrlComponent implements OnInit {
 
-  constructor(private title: Title) {
-    this.title.setTitle('404 - IntelliJ Ron Plugin');
-  }
-
   ngOnInit() {
   }
 

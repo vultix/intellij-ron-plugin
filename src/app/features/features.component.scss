@@ -1,7 +1,6 @@
 @import "vars";
 
 :host {
-  background: $lightColor2;
   text-align: center;
 }
 
@@ -14,7 +13,6 @@ $wrapperPadding: 15px;
 .wrapper {
   max-width: 930px;
   margin: 0 auto;
-  color: #3B3E42;
   display: flex;
   flex-wrap: wrap;
   padding: $wrapperPadding;

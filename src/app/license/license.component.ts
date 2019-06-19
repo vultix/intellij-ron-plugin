@@ -9,10 +9,6 @@ import { Title } from '@angular/platform-browser';
 })
 export class LicenseComponent implements OnInit {
 
-  constructor(private title: Title) {
-    title.setTitle('IntelliJ-RON License');
-  }
-
   ngOnInit() {
   }
 

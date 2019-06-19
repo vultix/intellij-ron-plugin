@@ -8,7 +8,10 @@ import { OS, OSService } from '../shared/os.service';
   selector: 'app-features',
   templateUrl: './features.component.html',
   styleUrls: ['./features.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'docs'
+  }
 
 })
 export class FeaturesComponent implements OnInit, OnDestroy {
@@ -94,8 +97,7 @@ export class FeaturesComponent implements OnInit, OnDestroy {
     }
   }
 
-  constructor(private osService: OSService, private title: Title) {
-    title.setTitle('Features');
+  constructor(private osService: OSService) {
   }
 
   ngOnInit() {

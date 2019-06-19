@@ -9,6 +9,7 @@ import { VxButtonModule, VxMenuModule } from 'vx-components';
 // TODO: Remove this when the following is fixed: https://github.com/FortAwesome/angular-fontawesome/issues/48
 import { config } from '@fortawesome/fontawesome-svg-core';
 import { OSService } from './os.service';
+import { SeoService } from './seo.service';
 import { VideoDirective } from './video.directive';
 config.autoAddCss = false;
 
@@ -37,7 +38,8 @@ export class SharedModule {
     return {
       ngModule: SharedModule,
       providers: [
-        OSService
+        OSService,
+        SeoService
       ]
     };
   }
