@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { FaIconService } from '@fortawesome/angular-fontawesome';
@@ -14,6 +15,7 @@ import { SeoService } from './shared/seo.service';
 export class AppComponent implements OnInit {
   routes = [
     {name: 'Home', route: '/'},
+    {name: 'Changelog', route: '/changelog'},
     {name: 'Features', route: '/features'},
     {name: 'Quick Start Guide', route: '/quickstart'},
     // {name: 'Plugin License', route: '/license'},
@@ -22,7 +24,7 @@ export class AppComponent implements OnInit {
   constructor(private faService: FaIconService,
               private seoService: SeoService,
               private router: Router,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute, @Inject(PLATFORM_ID) private platform: any) {
     faService.defaultPrefix = 'far';
   }
 
@@ -31,6 +33,11 @@ export class AppComponent implements OnInit {
       filter((event) => event instanceof NavigationEnd),
       map(() => this.activatedRoute),
       map((route) => {
+        if (isPlatformBrowser(this.platform)) {
+          const scrolling = document.scrollingElement || document.body;
+          scrolling.scrollTop = 0;
+        }
+
         while (route.firstChild) {
           route = route.firstChild;
         }

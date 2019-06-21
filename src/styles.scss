@@ -77,4 +77,11 @@ p {
   background: $lightColor2;
   color: #3B3E42;
   display: block;
+  min-height: calc(100vh - #{$headerHeight});
+  box-sizing: border-box;
+
+  h1 {
+    border-bottom: 1px solid #9A9A9A;
+    padding-bottom: 10px;
+  }
 }

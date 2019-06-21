@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { LicenseComponent } from './license/license.component';
 import { QuickStartComponent } from './quick-start/quick-start.component';
 import { SharedModule } from './shared/shared.module';
+import { ChangelogComponent } from './changelog/changelog.component';
 
 // Reminder: When adding / changing routes, add them to /prerenderer/prerenderer.ts and app.component.ts
 const routes: Routes = [
@@ -37,6 +38,12 @@ const routes: Routes = [
     }
   },
   {
+    path: 'changelog', component: ChangelogComponent, data: {
+      description: 'RON (Rusty Object Notation) plugin for IntelliJ Idea changelog, bug fixes, and releases.',
+      title: 'Changelog'
+    }
+  },
+  {
     path: '404', component: BadUrlComponent, data: {
       description: '404 Page Not Found',
       title: '404 Page Not Found'
@@ -53,13 +60,14 @@ const routes: Routes = [
     LicenseComponent,
     BadUrlComponent,
     FeaturesComponent,
-    QuickStartComponent
+    QuickStartComponent,
+    ChangelogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({
       appId: 'documentation'
     }),
-    RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules}),
+    RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules, anchorScrolling: 'disabled'}),
     SharedModule.forRoot()
   ],
   providers: [],

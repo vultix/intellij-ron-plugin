@@ -1,6 +1,6 @@
+@import "vars";
 :host {
   display: block;
-  padding: 20px;
 }
 
 .newFile {
@@ -9,3 +9,8 @@
 }
 
 
+.wrapper {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: $pageWidth;
+}

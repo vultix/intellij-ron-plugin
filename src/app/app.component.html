@@ -5,8 +5,11 @@
     <fa-icon icon="bars" size="lg"></fa-icon>
   </button>
 
+  <vx-item>Hello!</vx-item>
+
   <vx-menu #menu>
-      <vx-item *ngFor="let route of routes" [routerLink]="route.route" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <vx-item *ngFor="let route of routes" [routerLink]="route.route" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+               (select)="router.navigateByUrl(route.route)">
         {{route.name}}
       </vx-item>
   </vx-menu>

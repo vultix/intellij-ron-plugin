@@ -8,13 +8,14 @@ import { VxButtonModule, VxMenuModule } from 'vx-components';
 
 // TODO: Remove this when the following is fixed: https://github.com/FortAwesome/angular-fontawesome/issues/48
 import { config } from '@fortawesome/fontawesome-svg-core';
+import { AnchorDirective } from './anchor.directive';
 import { OSService } from './os.service';
 import { SeoService } from './seo.service';
 import { VideoDirective } from './video.directive';
 config.autoAddCss = false;
 
 @NgModule({
-  declarations: [VideoDirective],
+  declarations: [VideoDirective, AnchorDirective],
   imports: [
     CommonModule,
     VxButtonModule,
@@ -26,7 +27,8 @@ config.autoAddCss = false;
     VxButtonModule,
     VxMenuModule,
     FontAwesomeModule,
-    VideoDirective
+    VideoDirective,
+    AnchorDirective
   ]
 })
 export class SharedModule {

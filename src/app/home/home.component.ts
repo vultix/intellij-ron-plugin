@@ -18,7 +18,7 @@ import {
 })
 export class HomeComponent implements AfterViewInit {
 
-  @ViewChild('video', {static: false}) video: ElementRef<HTMLVideoElement>;
+  @ViewChild('video', {static: false}) video?: ElementRef<HTMLVideoElement>;
 
 
   constructor(@Inject(PLATFORM_ID) private platformId: any) { }

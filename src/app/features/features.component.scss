@@ -1,22 +1,28 @@
 @import "vars";
 
 :host {
-  text-align: center;
+  text-align: left;
+  overflow: hidden;
 }
 
 h2 {
   margin: 0;
 }
 $featurePadding: 10px;
-$wrapperPadding: 15px;
+$wrapperPadding: 20px;
 
 .wrapper {
   max-width: 930px;
   margin: 0 auto;
+  padding: 20px;
+}
+
+
+.features {
   display: flex;
   flex-wrap: wrap;
-  padding: $wrapperPadding;
-  text-align: left;
+  margin: 0 -$featurePadding;
+  padding-top: 20px;
 }
 
 .feature {
@@ -27,12 +33,13 @@ $wrapperPadding: 15px;
   padding: $featurePadding;
   box-sizing: border-box;
   &.large {
-    flex-basis: 100%;
+    width: 100%;
+    padding: 0;
   }
 }
 
 .keybindings {
-  margin: -10px $featurePadding 20px;
+  margin: -10px 0 20px;
 }
 
 .img {
@@ -60,15 +67,9 @@ $wrapperPadding: 15px;
   margin: 10px;
 }
 
-h1 {
-  flex-basis: 100%;
-  padding-left: $featurePadding;
-}
-
-
 video {
   max-width: 100%;
-  width: 900px;
+  width: $pageWidth;
 }
 
 

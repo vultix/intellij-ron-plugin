@@ -14,7 +14,7 @@ export function cache(uncache?: string) {
 
     let value: any;
     let subscribed = false;
-    descriptor.get = function(this) {
+    descriptor.get = function(this: any) {
       if (!subscribed && uncache) {
         const observable = this[uncache] as Observable<any>;
 
