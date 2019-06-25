@@ -1,0 +1,19 @@
+@import "vars";
+:host {
+  display: block;
+}
+
+
+h2 {
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+.date {
+  font-size: 14px;
+  color: #656565;
+}
+.wrapper {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: $pageWidth
+}

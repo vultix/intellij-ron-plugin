@@ -31,4 +31,7 @@ export class HomeComponent implements AfterViewInit {
   }
 
 
+  goToPlugin(): void {
+    window.location.href = 'https://plugins.jetbrains.com/plugin/12635-ron-rusty-object-notation-';
+  }
 }
